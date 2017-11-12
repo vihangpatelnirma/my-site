@@ -24,10 +24,10 @@
     "koa": "^2.4.1",
     "koa-router": "^7.2.1",
     "react": "^16.1.0",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "babel-cli": "^6.26.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-install": "^2.1.0",
     "babel-plugin-module-resolver": "^3.0.0",
