@@ -1,1 +1,1 @@
-web:npm run build && node server.js -p $PORT
+web:node server/index.js -p $PORT
