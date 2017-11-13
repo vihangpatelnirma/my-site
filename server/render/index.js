@@ -7,20 +7,9 @@ import App from 'client/src'
 
 async function preload(ctx, next) {
 
-    // Create a HTML stream, to send back to the browser
-    const htmlStream = new PassThrough()
-    // Prefix the doctype, so the browser knows to expect HTML5
-    htmlStream.write('<!DOCTYPE html>')
+    const appString = ReactDOMServer.renderToString(<App/>)
 
-    const app = (
-        <App/>
-    )
-
-    const appString = ReactDOMServer.renderToNodeStream(app)
-
-    appString.pipe(htmlStream)
-
-    ctx.body = htmlStream
+    ctx.body = appString
     ctx.type = 'text/html'
 
     await next()
