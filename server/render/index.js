@@ -2,13 +2,20 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import Router from 'koa-router'
 
+import { PassThrough } from 'stream'
+
 import App from 'client/src'
 
 async function preload(ctx, next) {
 
-    const appString = ReactDOMServer.renderToString(<App/>)
+    const htmlStream = new PassThrough()
+    htmlStream.write('<!DOCTYPE html>')
 
-    ctx.body = appString
+    const appString = ReactDOMServer.renderToNodeStream(<App/>)
+
+    appString.pipe(htmlStream)
+
+    ctx.body = htmlStream
     ctx.type = 'text/html'
 
     await next()
