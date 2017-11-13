@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 
-import Header from './header'
-import Footer from './footer'
-
-export default class App extends Component {
+export default class Header extends Component {
 
     constructor(props) {
         super(props)
@@ -12,8 +9,7 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                <Header />
-                <Footer />
+                <h1> Header </h1>
             </div>
         )
     }
