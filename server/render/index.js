@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import Router from 'koa-router'
 
-import { PassThrough } from 'stream'
 import App from 'client/src'
 
 async function preload(ctx, next) {
