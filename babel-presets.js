@@ -2,9 +2,8 @@ const paths = require('./config/paths')
 
 const clonedPaths = Object.assign({}, paths)
 
-console.log(clonedPaths)
 module.exports = { 
-    "presets" : ["es2015"],
+    "presets" : ["es2015", "react"],
     "plugins" : [
         "transform-object-rest-spread",
         [
