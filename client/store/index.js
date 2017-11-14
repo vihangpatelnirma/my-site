@@ -7,7 +7,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 /**
  * File imports
  */
-import rootReducer from './RootReducer'
+import rootReducer from './rootReducer'
 
 /**
  * This function creates a redux store
