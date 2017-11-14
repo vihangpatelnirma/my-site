@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import Router from 'koa-router'
+import { Provider } from 'react-redux'
 
 import { PassThrough } from 'stream'
-
+import configureStore from 'client/store'
 import App from 'client/src'
 
 async function preload(ctx, next) {
@@ -11,7 +12,14 @@ async function preload(ctx, next) {
     const htmlStream = new PassThrough()
     htmlStream.write('<!DOCTYPE html>')
 
-    const appString = ReactDOMServer.renderToNodeStream(<App/>)
+    const store = configureStore({}),
+        app = (
+            <Provider store={store}>
+                <App />
+            </Provider>
+        )
+    console.log(store.getState())
+    const appString = ReactDOMServer.renderToNodeStream(app)
 
     appString.pipe(htmlStream)
 
