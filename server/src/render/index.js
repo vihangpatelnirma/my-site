@@ -5,7 +5,9 @@ import { Provider } from 'react-redux'
 
 import { PassThrough } from 'stream'
 import configureStore from 'client/store'
-import App from 'client/src'
+import App from 'client'
+import ServeHTML from './serveHtml'
+import prefetchers from 'server/middlewares/prefetchers'
 
 async function preload(ctx, next) {
 
@@ -13,15 +15,20 @@ async function preload(ctx, next) {
     htmlStream.write('<!DOCTYPE html>')
 
     const store = configureStore({}),
-        app = (
+        appString = ReactDOMServer.renderToString(
             <Provider store={store}>
                 <App />
             </Provider>
         )
-    console.log(store.getState())
-    const appString = ReactDOMServer.renderToNodeStream(app)
 
-    appString.pipe(htmlStream)
+    const htmlComponent = (
+        <ServeHTML appString={ appString }/>
+        
+    )
+
+    const htmlString = ReactDOMServer.renderToNodeStream(htmlComponent)
+
+    htmlString.pipe(htmlStream)
 
     ctx.body = htmlStream
     ctx.type = 'text/html'
@@ -33,7 +40,7 @@ export default async function preloadMiddleware(app) {
 
     const router = Router({ prefix : '/'})
 
-    router.get('*', preload)
+    router.get('*',prefetchers, preload)
 
     app.use(router.routes())
         .use(router.allowedMethods())

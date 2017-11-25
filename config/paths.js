@@ -5,6 +5,6 @@ console.log(currentPath)
 
 
 module.exports = {
-    'server' : `${currentPath}server`,
-    'client' : `${currentPath}client`
+    'server' : `${currentPath}server/src`,
+    'client' : `${currentPath}client/src`
 }
