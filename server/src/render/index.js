@@ -45,3 +45,10 @@ export default async function preloadMiddleware(app) {
     app.use(router.routes())
         .use(router.allowedMethods())
 }
+
+function mergePrefetchers(store, ctxStore) {
+    return {
+        ...store,
+        ctxStore
+    }
+}

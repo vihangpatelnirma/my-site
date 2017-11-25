@@ -6,5 +6,6 @@ console.log(currentPath)
 
 module.exports = {
     'server' : `${currentPath}server/src`,
-    'client' : `${currentPath}client/src`
+    'client' : `${currentPath}client/src`,
+    'data' : `${currentPath}data`
 }
