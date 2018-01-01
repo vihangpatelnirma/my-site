@@ -1,18 +1,7 @@
-import React, { Component } from 'react'
 
+import React from 'react' // eslint-disable-line no-unused-vars
+import Universal from 'react-universal-component'
 
-export default class Footer extends Component {
+const Footer = Universal(import('./Listing'))
 
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
-        return (
-            <div>
-                <h1> Footer </h1>
-            </div>
-        )
-    }
-
-}
+export default Footer

@@ -1,0 +1,26 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	"window.zoomLevel": 0.7,
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/public": true
+	},
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/.DS_Store": true
+	},
+	"editor.insertSpaces": false,
+	"editor.fontLigatures": true,
+	"editor.renderWhitespace": "none",
+	"editor.renderIndentGuides": true,
+	"editor.useTabStops": false,
+	"editor.formatOnSave": true,
+	"less.lint.duplicateProperties": "warning",
+	"less.lint.float": "warning",
+	"eslint.enable": true,
+	"eslint.run": "onSave",
+	"eslint.autoFixOnSave": true
+}
