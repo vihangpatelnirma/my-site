@@ -1,6 +1,6 @@
 import React from "react" // eslint-disable-line no-unused-vars
 import Universal from "react-universal-component"
 
-const Footer = Universal(import("./home"))
+const Home = Universal(import("./home"))
 
-export default Footer
+export default Home
