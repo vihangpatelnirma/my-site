@@ -1,15 +1,18 @@
 /** Libs imports */
-import React from 'react'
-import { Provider as ReduxProvider, Provider } from 'react-redux'
+import React from "react"
+import { hydrate } from "react-dom"
+import { Provider } from "react-redux"
 
 /** File imports */
-import configureStore from 'client/store'
-import App from 'client/app'
+import configureStore from "client/store"
+import App from "client/app"
 
-const store = configureStore( window.__INITIAL_STATE__ || {})
+const store = configureStore(window.__INITIAL_STATE__ || {})
 
-const BootStrapApp = (
-    <Provider store={store}>
-
-    </Provider>
+const AppComponent = (
+	<Provider store={store}>
+		<App />
+	</Provider>
 )
+
+hydrate(AppComponent, document.getElementById("app"))
