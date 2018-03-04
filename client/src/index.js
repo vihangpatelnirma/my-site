@@ -1,5 +1,6 @@
+/* global window, __CLIENT__ */
 /** Libs imports */
-import React from "react"
+import React, { Component } from "react"
 import { hydrate } from "react-dom"
 import { Provider } from "react-redux"
 
@@ -7,7 +8,7 @@ import { Provider } from "react-redux"
 import configureStore from "client/store"
 import App from "client/app"
 
-const store = configureStore(window.__INITIAL_STATE__ || {})
+const store = configureStore((__CLIENT__ && window.__INITIAL_STATE__) || {})
 
 const AppComponent = (
 	<Provider store={store}>

@@ -7,6 +7,7 @@ module.exports = {
 	plugins: [
 		"transform-object-rest-spread",
 		"syntax-dynamic-import",
+		"transform-react-jsx",
 		"transform-regenerator",
 		"transform-decorators-legacy",
 		"transform-class-properties",

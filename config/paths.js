@@ -1,11 +1,11 @@
-const path = require('path')
+const path = require("path")
 
-const currentPath = path.join(__dirname, '../')
+const currentPath = path.join(__dirname, "../")
 console.log(currentPath)
 
-
 module.exports = {
-    'server' : `${currentPath}server/src`,
-    'client' : `${currentPath}client/src`,
-    'data' : `${currentPath}data`
+	server: `${currentPath}server/src`,
+	client: `${currentPath}client/src`,
+	data: `${currentPath}data`,
+	env: `${currentPath}env`,
 }

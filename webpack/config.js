@@ -2,8 +2,7 @@ const webpack = require("webpack") //to access built-in plugins
 const path = require("path")
 
 const clientPath = path.resolve(__dirname, "..", "client", "src")
-
-console.log("****** path : ", clientPath)
+const StatsPlugin = require("stats-webpack-plugin")
 
 module.exports = {
 	entry: clientPath,
@@ -22,13 +21,25 @@ module.exports = {
 				loaders: [
 					{
 						loader: "babel-loader",
-						options: {
-							presets: ["es2015", "react"],
-							plugins: ["transform-object-rest-spread"],
-						},
 					},
 				],
 			},
+			{
+				test: /\.jsx?$/,
+				loader: "babel-loader",
+				exclude: /node_modules/,
+				query: {
+					presets: ["es2015"],
+				},
+			},
 		],
 	},
+	plugins: [
+		// flush chunks needs this both on dev and prod environments.
+		new StatsPlugin("stats.json"),
+		new webpack.DefinePlugin({
+			__SERVER__: false,
+			__CLIENT__: true,
+		}),
+	],
 }
