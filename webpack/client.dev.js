@@ -6,12 +6,24 @@ const clientPath = path.resolve(__dirname, "..", "client", "src")
 console.log("****** path : ", clientPath)
 
 module.exports = {
-	entry: clientPath,
+	entry: [
+		"webpack-hot-middleware/client?name=client&path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false",
+		clientPath,
+	],
+	name: "client",
 	output: {
 		path: path.join(__dirname, "..", "build"),
 		filename: "js/[name].[chunkhash].js",
 		chunkFilename: "js/[name].[chunkhash].js",
 		publicPath: "/",
+	},
+	node: {
+		console: true,
+		fs: "empty",
+		net: "empty",
+		tls: "empty",
+		__dirname: false,
+		__filename: false,
 	},
 	module: {
 		rules: [
@@ -31,4 +43,5 @@ module.exports = {
 			},
 		],
 	},
+	plugins: [new webpack.HotModuleReplacementPlugin()],
 }
