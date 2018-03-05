@@ -18,8 +18,8 @@ module.exports = {
 	},
 	output: {
 		path: path.join(__dirname, "..", "server-build"),
-		filename: "js/[name].[chunkhash].js",
-		chunkFilename: "js/[name].[chunkhash].js",
+		filename: "[name].js",
+		chunkFilename: "[name].js",
 		publicPath: "/",
 	},
 	module: {
@@ -37,6 +37,14 @@ module.exports = {
 						},
 					},
 				],
+			},
+			{
+				test: /\.jsx?$/,
+				loader: "babel-loader",
+				exclude: /node_modules/,
+				query: {
+					presets: ["es2015"],
+				},
 			},
 		],
 	},

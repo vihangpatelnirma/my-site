@@ -3,7 +3,7 @@ const paths = require("./config/paths")
 const clonedPaths = Object.assign({}, paths)
 
 module.exports = {
-	presets: ["es2015", "react"],
+	presets: ["es2015", "react", "babel-preset-react"],
 	plugins: [
 		"transform-object-rest-spread",
 		"syntax-dynamic-import",
