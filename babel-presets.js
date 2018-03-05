@@ -8,6 +8,7 @@ module.exports = {
 		"transform-object-rest-spread",
 		"syntax-dynamic-import",
 		"transform-regenerator",
+		"transform-react-jsx",
 		"transform-decorators-legacy",
 		"transform-class-properties",
 		"universal-import",
