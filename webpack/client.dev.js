@@ -1,5 +1,11 @@
 const webpack = require("webpack") //to access built-in plugins
 const path = require("path")
+const WriteFilePlugin = require("write-file-webpack-plugin")
+
+const config = require("../babel/config")
+
+const presets = config.presets
+const plugins = config.plugins
 
 const clientPath = path.resolve(__dirname, "..", "client", "src")
 
@@ -13,8 +19,8 @@ module.exports = {
 	name: "client",
 	output: {
 		path: path.join(__dirname, "..", "build"),
-		filename: "js/[name].[chunkhash].js",
-		chunkFilename: "js/[name].[chunkhash].js",
+		filename: "js/[name].[hash].js",
+		chunkFilename: "js/[name].[hash].js",
 		publicPath: "/",
 	},
 	node: {
@@ -35,8 +41,8 @@ module.exports = {
 					{
 						loader: "babel-loader",
 						options: {
-							presets: ["es2015", "react"],
-							plugins: ["transform-object-rest-spread"],
+							presets,
+							plugins,
 						},
 					},
 				],
@@ -46,10 +52,21 @@ module.exports = {
 				loader: "babel-loader",
 				exclude: /node_modules/,
 				query: {
-					presets: ["es2015"],
+					presets,
+					plugins,
 				},
 			},
 		],
 	},
-	plugins: [new webpack.HotModuleReplacementPlugin()],
+	plugins: [
+		new webpack.HotModuleReplacementPlugin(), // Create a `SERVER` constant that's false in the browser-- we'll use this to
+		// determine whether we're running on a Node server and set this to true
+		// in the server.js config
+		new webpack.DefinePlugin({
+			__SERVER__: false,
+			__CLIENT__: true,
+			__STYLEGUIDE__: false,
+		}),
+		new WriteFilePlugin(),
+	],
 }

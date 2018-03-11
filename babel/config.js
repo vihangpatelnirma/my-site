@@ -1,4 +1,4 @@
-const paths = require("./config/paths")
+const paths = require("../config/paths")
 
 const clonedPaths = Object.assign({}, paths)
 
@@ -10,7 +10,6 @@ module.exports = {
 		"transform-react-jsx",
 		"transform-decorators-legacy",
 		"transform-class-properties",
-		"transform-async-to-generator",
 		"universal-import",
 		[
 			"module-resolver",

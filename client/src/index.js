@@ -7,7 +7,9 @@ import { Provider } from "react-redux"
 import configureStore from "client/store"
 import App from "client/app"
 
-const store = configureStore(window.__INITIAL_STATE__ || {})
+const defaultState = {}
+
+const store = configureStore()
 
 const AppComponent = (
 	<Provider store={store}>
