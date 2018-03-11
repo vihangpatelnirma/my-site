@@ -8,11 +8,11 @@
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"kill":
-			"lsof -i tcp:4040 | grep LISTEN | awk '{print $2}' | xargs kill -9",
+		"kill": "lsof -i tcp:4040 | grep LISTEN | awk '{print $2}' | xargs kill -9",
 		"clean": "rimraf build && npm run kill",
 		"dev": "babel-node server",
-		"start": "better-npm-run dev"
+		"start": "better-npm-run dev",
+		"dev:vendor": "webpack --config webpack/vendor"
 	},
 	"betterScripts": {
 		"dev": {
@@ -41,19 +41,25 @@
 		"express": "^4.16.2",
 		"express-no-favicons": "0.0.1",
 		"express-static-gzip": "^0.3.2",
+		"history": "^4.7.2",
 		"koa": "^2.4.1",
+		"koa-mount": "^3.0.0",
 		"koa-router": "^7.2.1",
+		"koa-static": "^4.0.2",
 		"react": "^16.1.0",
 		"react-dom": "^16.1.0",
 		"react-redux": "^5.0.6",
 		"react-universal-component": "^2.8.2",
 		"redux": "^3.7.2",
+		"redux-first-router": "0.0.16-next",
+		"stats-webpack-plugin": "0.6.1",
 		"style-loader": "0.20.0",
 		"uglifyjs-webpack-plugin": "1.1.7",
 		"webpack": "3.11.0",
 		"webpack-bundle-analyzer": "2.10.0",
 		"webpack-dev-middleware": "2.0.5",
 		"webpack-dev-server": "2.9.6",
+		"webpack-flush-chunks": "^1.2.3",
 		"webpack-hot-middleware": "2.21.0",
 		"webpack-hot-server-middleware": "0.4.0",
 		"webpack-node-externals": "1.6.0"

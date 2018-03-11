@@ -1,30 +1,37 @@
-/**
- * Node module imports
- */
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware, compose } from "redux"
 
+import createReducer from "./rootReducer"
 
-/**
- * File imports
- */
-import rootReducer from './rootReducer'
+export default function configureStore(initialState = {}, reduxRouter) {
+	/**
+	 * Apply middleware from routes
+	 */
+	const middlewares = applyMiddleware(reduxRouter.middleware)
 
-/**
- * This function creates a redux store
- *
- * @param  {object} history Browser history object
- * @param  {object} state   Redux state
- * @return {Store}         Returns a redux store
- */
-export default function(state = {}){
+	/**
+	 * Configure store using above middlewares
+	 */
+	let composeFunc
+	if (__DEV__) {
+		composeFunc = compose(
+			reduxRouter.enhancer,
+			middlewares,
+			typeof window === "object" &&
+			typeof window.devToolsExtension !== "undefined"
+				? window.devToolsExtension()
+				: f => f
+		)
+	} else {
+		composeFunc = compose(reduxRouter.enhancer, middlewares)
+	}
 
-    let composeStore
+	const store = createStore(
+		createReducer({
+			location: reduxRouter.reducer,
+		}),
+		initialState,
+		composeFunc
+	)
 
-
-    const store = createStore(
-        rootReducer,
-        state
-    )
-
-    return store
+	return store
 }

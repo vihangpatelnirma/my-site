@@ -1,6 +1,7 @@
 const webpack = require("webpack") //to access built-in plugins
 const path = require("path")
 const WriteFilePlugin = require("write-file-webpack-plugin")
+const StatsPlugin = require("stats-webpack-plugin")
 
 const config = require("../babel/config")
 
@@ -59,6 +60,8 @@ module.exports = {
 		],
 	},
 	plugins: [
+		// flush chunks needs this both on dev and prod environments.
+		new StatsPlugin("stats.json"),
 		new webpack.HotModuleReplacementPlugin(), // Create a `SERVER` constant that's false in the browser-- we'll use this to
 		// determine whether we're running on a Node server and set this to true
 		// in the server.js config

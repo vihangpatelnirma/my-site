@@ -1,9 +1,14 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux"
 
-import home from './home'
+import home from "client/home/reducer"
+import navigator from "client/routes/navigator"
 
 const initialReducer = {
-    home
+	home,
+	navigator,
 }
 
-export default combineReducers(initialReducer)
+const createReducer = defaultReducers =>
+	combineReducers({ defaultReducers, ...initialReducer })
+
+export default createReducer
