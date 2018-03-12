@@ -20,7 +20,7 @@ const switchPage = (state, page) => ({
 	page,
 })
 
-export const reducerRoutes = new ReducerManager({
+export const reducerNavigator = new ReducerManager({
 	namespace: "@route",
 	store: "page",
 	actions: {

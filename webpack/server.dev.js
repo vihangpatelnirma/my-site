@@ -24,7 +24,7 @@ module.exports = {
 		__filename: false,
 	},
 	output: {
-		path: path.join(__dirname, "..", "build"),
+		path: path.join(__dirname, "..", "public", "build"),
 		filename: "server.js",
 		chunkFilename: "server.js",
 		publicPath: "/",
@@ -64,6 +64,7 @@ module.exports = {
 		new webpack.DefinePlugin({
 			__SERVER__: true,
 			__CLIENT__: false,
+			__DEV__: true,
 		}),
 		new webpack.optimize.LimitChunkCountPlugin({
 			maxChunks: 1,

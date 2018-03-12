@@ -7,7 +7,7 @@ import nameMap from "./names"
  */
 const initRoutes = (pathArray = {}) =>
 	connectRoutes(actionNameMap, {
-		...names,
+		...nameMap,
 		initialEntries: pathArray.initialEntries,
 	})
 

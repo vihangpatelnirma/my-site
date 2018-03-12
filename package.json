@@ -8,8 +8,9 @@
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"kill": "lsof -i tcp:4040 | grep LISTEN | awk '{print $2}' | xargs kill -9",
-		"clean": "rimraf build && npm run kill",
+		"kill":
+			"(lsof -i tcp:4040 | grep LISTEN | awk '{print $2}' | xargs kill -9) & (lsof -i tcp:3030 | grep LISTEN | awk '{print $2}' | xargs kill -9)",
+		"clean": "rimraf public/build && npm run kill",
 		"dev": "babel-node server",
 		"start": "better-npm-run dev",
 		"dev:vendor": "webpack --config webpack/vendor"
@@ -51,7 +52,7 @@
 		"react-redux": "^5.0.6",
 		"react-universal-component": "^2.8.2",
 		"redux": "^3.7.2",
-		"redux-first-router": "0.0.16-next",
+		"redux-first-router": "0.0.4-rudy",
 		"stats-webpack-plugin": "0.6.1",
 		"style-loader": "0.20.0",
 		"uglifyjs-webpack-plugin": "1.1.7",

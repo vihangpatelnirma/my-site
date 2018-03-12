@@ -31,7 +31,11 @@ export default function getClientBundleEntryAssets() {
 
 	console.log(config)
 
-	const assetsFilePath = path.resolve(config.PUBLIC_PATH, config.STATS_FILE)
+	const assetsFilePath = path.resolve(
+		config.PUBLIC_PATH,
+		"build",
+		config.STATS_FILE
+	)
 
 	if (!fs.existsSync(assetsFilePath)) {
 		throw new Error(

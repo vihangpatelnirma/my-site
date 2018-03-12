@@ -9,12 +9,12 @@ import config from "config"
 import router from "server/middlewares/router"
 
 const app = new koa()
-
-// app.use(
-// 	mount("/assets", serve(path.resolve(config.PUBLIC_PATH)), {
-// 		maxage: 24 * 60 * 60 * 100,
-// 	})
-// )
+console.log("public path : ", config.PUBLIC_PATH)
+app.use(
+	mount("/chunks", serve(config.PUBLIC_PATH), {
+		maxage: 24 * 60 * 60 * 100,
+	})
+)
 
 router(app)
 
