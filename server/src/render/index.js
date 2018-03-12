@@ -26,7 +26,7 @@ async function preload(ctx, next) {
 	 */
 	const page = createStore(reduxRouter.reducer).getState().type
 
-	console.log("page name : ", page)
+	console.log("page name : ", ctx.path, " ", page)
 
 	/**
 	 * Configure store

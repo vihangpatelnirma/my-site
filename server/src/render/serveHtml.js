@@ -7,23 +7,32 @@ import flushChunks from "webpack-flush-chunks"
 
 const assets = readStatsJSON()
 
-const chunkNames = flushChunkNames()
-
-const {
-	// arrays of file names (not including publicPath):
-	scripts,
-	stylesheets,
-	cssHashRaw,
-	publicPath,
-} = flushChunks(assets, {
-	chunkNames,
-	after: ["main"],
-})
-console.log("script : ", scripts)
-
 export default class ServeHTML extends Component {
 	constructor(props) {
 		super(props)
+
+		const chunkNames = flushChunkNames()
+
+		const {
+			// arrays of file names (not including publicPath):
+			scripts,
+			stylesheets,
+			cssHashRaw,
+			publicPath,
+		} = flushChunks(assets, {
+			chunkNames,
+			after: ["main"],
+		})
+
+		this.assets = {
+			// arrays of file names (not including publicPath):
+			scripts,
+			stylesheets,
+			cssHashRaw,
+			publicPath,
+		}
+
+		console.log(this.assets)
 	}
 
 	render() {
@@ -32,7 +41,7 @@ export default class ServeHTML extends Component {
 			<html>
 				<head>
 					<title>My First Application</title>
-					<script src="/assets/vendor.bundle.js" />
+					<script src="/chunks/vendor.bundle.js" />
 				</head>
 				<body>
 					<div
