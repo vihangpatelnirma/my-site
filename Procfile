@@ -1,1 +1,1 @@
-web:babel-node server/index.js -p $PORT
+web:babel-node public/build/server.js -p $PORT

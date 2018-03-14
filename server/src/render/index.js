@@ -42,7 +42,9 @@ async function preload(ctx, next) {
 		</Provider>
 	)
 
-	const htmlComponent = <ServeHTML appString={appString} />
+	const htmlComponent = (
+		<ServeHTML appString={appString} initialAppState={store.getState()} />
+	)
 
 	const htmlString = ReactDOMServer.renderToNodeStream(htmlComponent)
 

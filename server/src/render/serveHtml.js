@@ -41,15 +41,38 @@ export default class ServeHTML extends Component {
 			<html>
 				<head>
 					<title>My First Application</title>
-					<script src="/chunks/vendor.bundle.js" />
 				</head>
 				<body>
 					<div
 						id="app" // eslint-disable-line
 						dangerouslySetInnerHTML={{ __html: appString }}
 					/>
+					{inlineScript(
+						`window.__INITIAL_STATE__ = ${JSON.stringify(
+							this.props.initialAppState
+						)}`
+					)}
+					<script src="/chunks/vendor.bundle.js" />
+					{this.assets.scripts
+						.reverse()
+						.map(filePath => scriptTag(filePath, "/chunks/build"))}
 				</body>
 			</html>
 		)
 	}
 }
+
+function scriptTag(jsFilePath, publicPath) {
+	return (
+		<script
+			type="text/javascript"
+			src={`${publicPath.replace(/\/+$/, "")}/${jsFilePath}`}
+		/>
+	)
+}
+
+// Creates an inline script definition that is protected by the nonce.
+// Used to inject store state. Remove eslint disable later.
+const inlineScript = body => (
+	<script type="text/javascript" dangerouslySetInnerHTML={{ __html: body }} />
+)

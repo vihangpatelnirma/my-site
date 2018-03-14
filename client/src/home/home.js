@@ -8,7 +8,7 @@ export default class Home extends Component {
 	render() {
 		return (
 			<div>
-				<h1> Home Part </h1>
+				<h1> Home Part Test</h1>
 			</div>
 		)
 	}
