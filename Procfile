@@ -1,1 +1,1 @@
-web:babel-node public/build/server.js -p $PORT
+web:npm run prod -p $PORT

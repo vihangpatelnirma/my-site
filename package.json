@@ -17,7 +17,8 @@
 		"build-client": "webpack --config webpack/server.dev.js",
 		"build":
 			"npm run dev:vendor & npm run build-server & npm run build-client",
-		"dev:vendor": "webpack --config webpack/vendor"
+		"dev:vendor": "webpack --config webpack/vendor",
+		"prod": "better-npm-run prod"
 	},
 	"betterScripts": {
 		"dev": {
@@ -29,10 +30,9 @@
 		},
 		"prod": {
 			"command":
-				"npm run clean & npm run build & node public/build/server.js",
+				"npm run clean && npm run build && node public/build/server.js",
 			"env": {
-				"NODE_ENV": "production",
-				"PORT": 4040
+				"NODE_ENV": "production"
 			}
 		}
 	},
