@@ -1,9 +1,8 @@
 import { reducerNavigator } from "./navigator"
 
-console.log(reducerNavigator.actionNames.HOME)
-
 const routes = {
 	[reducerNavigator.actionNames.HOME]: "/",
+	[reducerNavigator.actionNames.CONTACTUS]: "/contact-us",
 }
 
 export default routes

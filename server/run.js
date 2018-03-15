@@ -17,12 +17,12 @@ let isBuilt = false
 
 const done = () =>
 	!isBuilt &&
-	app.listen(process.env.PORT, () => {
+	app.listen(10000, () => {
 		isBuilt = true
 		// eslint-disable-next-line no-console
 		console.log(
 			"Build complete -- Listening @ localhost:",
-			process.env.PORT,
+			10000,
 			"\nNODE_ENV: ",
 			process.env.NODE_ENV
 		)
