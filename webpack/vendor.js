@@ -1,5 +1,6 @@
 const webpack = require("webpack"),
-	path = require("path")
+	path = require("path"),
+	CompressionPlugin = require("compression-webpack-plugin")
 
 const VENDORS = [
 	"react",
@@ -22,6 +23,21 @@ module.exports = {
 	plugins: [
 		new webpack.DefinePlugin({
 			"process.env.NODE_ENV": JSON.stringify("development"),
+		}),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+				warnings: false,
+				drop_console: true,
+			},
+			comments: false,
+		}),
+
+		new CompressionPlugin({
+			asset: "[file].gz",
+			algorithm: "gzip",
+			test: /\.js$|\.html$|\.css$/,
+			threshold: 1024,
+			minRatio: 0.9,
 		}),
 	],
 }

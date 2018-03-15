@@ -11,10 +11,9 @@
 		"kill":
 			"(lsof -i tcp:4040 | grep LISTEN | awk '{print $2}' | xargs kill -9) & (lsof -i tcp:3030 | grep LISTEN | awk '{print $2}' | xargs kill -9)",
 		"clean": "rimraf public/build && npm run kill",
-		"dev": "babel-node server",
 		"start": "better-npm-run dev",
-		"build-server": "webpack --config webpack/client.dev.js",
-		"build-client": "webpack --config webpack/server.dev.js",
+		"build-server": "webpack --config webpack/server.prod.js",
+		"build-client": "webpack --config webpack/client.prod.js",
 		"build":
 			"npm run dev:vendor & npm run build-server & npm run build-client",
 		"dev:vendor": "webpack --config webpack/vendor",
@@ -94,6 +93,7 @@
 		"babel-preset-react": "^6.24.1",
 		"babel-runtime": "^6.26.0",
 		"better-npm-run": "^0.1.0",
+		"compression-webpack-plugin": "^1.1.11",
 		"rimraf": "^2.6.2",
 		"write-file-webpack-plugin": "^4.2.0"
 	}
