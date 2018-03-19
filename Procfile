@@ -1,1 +1,1 @@
-web:npm run prod && SET PORT=$PORT && node public/build/server.js
+web:npm run prod && SET NODE_ENV=production PORT=$PORT && node public/build/server.js
