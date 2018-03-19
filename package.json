@@ -11,8 +11,7 @@
 		"kill":
 			"(lsof -i tcp:4040 | grep LISTEN | awk '{print $2}' | xargs kill -9) & (lsof -i tcp:3030 | grep LISTEN | awk '{print $2}' | xargs kill -9)",
 		"clean": "rimraf public/build && npm run kill",
-		"start":
-			"SET NODE_ENV=production PORT=$PORT && node public/build/server.js",
+		"start": "node public/build/server.js -p $PORT",
 		"build-server": "webpack --config webpack/server.prod.js",
 		"build-client": "webpack --config webpack/client.prod.js",
 		"build":
