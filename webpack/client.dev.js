@@ -60,6 +60,13 @@ module.exports = {
 		],
 	},
 	plugins: [
+		new webpack.optimize.CommonsChunkPlugin({
+			name: "vendor",
+			minChunks: function(module) {
+				// this assumes your vendor imports exist in the node_modules directory
+				return module.context && module.context.includes("node_modules")
+			},
+		}),
 		// flush chunks needs this both on dev and prod environments.
 		new StatsPlugin("stats.json"),
 		new webpack.HotModuleReplacementPlugin(), // Create a `SERVER` constant that's false in the browser-- we'll use this to

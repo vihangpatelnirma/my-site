@@ -52,10 +52,18 @@ export default class ServeHTML extends Component {
 							this.props.initialAppState
 						)}`
 					)}
-					<script src="/chunks/vendor.bundle.js" />
-					{this.assets.scripts
-						.reverse()
-						.map(filePath => scriptTag(filePath, "/chunks/build"))}
+					<script
+						src="/chunks/vendor.bundle.js"
+						type="text/javascript"
+					/>
+					<script
+						src={`${this.assets.publicPath}/${
+							assets.assetsByChunkName.main
+						}`}
+					/>
+					{this.assets.scripts.map(filePath =>
+						scriptTag(filePath, this.assets.publicPath)
+					)}
 				</body>
 			</html>
 		)
