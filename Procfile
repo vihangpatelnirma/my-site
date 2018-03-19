@@ -1,1 +1,1 @@
-web:npm run prod -p && node public/build/server.js -p $PORT
+web:npm run prod && SET PORT=$PORT && node public/build/server.js

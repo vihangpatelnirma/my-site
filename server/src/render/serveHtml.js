@@ -31,8 +31,6 @@ export default class ServeHTML extends Component {
 			cssHashRaw,
 			publicPath,
 		}
-
-		console.log(this.assets)
 	}
 
 	render() {
