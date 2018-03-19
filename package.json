@@ -28,8 +28,7 @@
 			}
 		},
 		"prod": {
-			"command":
-				"npm run clean && npm run build && node public/build/server.js",
+			"command": "npm run clean && npm run build",
 			"env": {
 				"NODE_ENV": "production"
 			}
