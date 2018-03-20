@@ -21,7 +21,8 @@ export default class ServeHTML extends Component {
 			publicPath,
 		} = flushChunks(assets, {
 			chunkNames,
-			after: ["main"],
+			before: ["vendor", "main"],
+			after: [],
 		})
 
 		this.assets = {
@@ -31,6 +32,8 @@ export default class ServeHTML extends Component {
 			cssHashRaw,
 			publicPath,
 		}
+
+		console.log("scripts : ", this.assets.scripts)
 	}
 
 	render() {
@@ -50,20 +53,9 @@ export default class ServeHTML extends Component {
 							this.props.initialAppState
 						)}`
 					)}
-					<script
-						src="/chunks/vendor.bundle.js"
-						type="text/javascript"
-					/>
-					<script
-						src={`${this.assets.publicPath}/${
-							assets.assetsByChunkName.main
-						}`}
-					/>
-					{this.assets.scripts
-						.filter(filePath => filePath.indexOf("vendor") === -1)
-						.map(filePath =>
-							scriptTag(filePath, this.assets.publicPath)
-						)}
+					{this.assets.scripts.map(filePath =>
+						scriptTag(filePath, this.assets.publicPath)
+					)}
 				</body>
 			</html>
 		)

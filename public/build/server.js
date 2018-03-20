@@ -21,7 +21,7 @@ module.exports =
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f7f812bc45195c6aca86"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7dbcfd48a261444f5679"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -25170,7 +25170,8 @@ var ServeHTML = function (_Component) {
 
 		var _flushChunks = (0, _webpackFlushChunks2.default)(assets, {
 			chunkNames: chunkNames,
-			after: ["main"]
+			before: ["vendor", "main"],
+			after: []
 		}),
 		    scripts = _flushChunks.scripts,
 		    stylesheets = _flushChunks.stylesheets,
@@ -25184,6 +25185,8 @@ var ServeHTML = function (_Component) {
 			cssHashRaw: cssHashRaw,
 			publicPath: publicPath
 		};
+
+		console.log("scripts : ", _this.assets.scripts);
 		return _this;
 	}
 
@@ -25197,14 +25200,7 @@ var ServeHTML = function (_Component) {
 			return _react2.default.createElement("html", null, _react2.default.createElement("head", null, _react2.default.createElement("title", null, "My First Application")), _react2.default.createElement("body", null, _react2.default.createElement("div", {
 				id: "app" // eslint-disable-line
 				, dangerouslySetInnerHTML: { __html: appString }
-			}), inlineScript("window.__INITIAL_STATE__ = " + JSON.stringify(this.props.initialAppState)), _react2.default.createElement("script", {
-				src: "/chunks/vendor.bundle.js",
-				type: "text/javascript"
-			}), _react2.default.createElement("script", {
-				src: this.assets.publicPath + "/" + assets.assetsByChunkName.main
-			}), this.assets.scripts.filter(function (filePath) {
-				return filePath.indexOf("vendor") === -1;
-			}).map(function (filePath) {
+			}), inlineScript("window.__INITIAL_STATE__ = " + JSON.stringify(this.props.initialAppState)), this.assets.scripts.map(function (filePath) {
 				return scriptTag(filePath, _this2.assets.publicPath);
 			})));
 		}

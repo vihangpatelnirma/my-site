@@ -17,7 +17,8 @@
 		"build":
 			"npm run dev:vendor & npm run build-server & npm run build-client",
 		"dev:vendor": "webpack --config webpack/vendor",
-		"prod": "better-npm-run prod"
+		"prod": "better-npm-run prod",
+		"dev": " better-npm-run dev"
 	},
 	"betterScripts": {
 		"dev": {
