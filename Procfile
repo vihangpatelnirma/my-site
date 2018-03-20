@@ -1,1 +1,1 @@
-web:npm run prod && node public/build/server.js -p $PORT
+web:npm run prod && node ../public/build/server.js -p $PORT
