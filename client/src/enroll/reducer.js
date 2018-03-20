@@ -5,10 +5,10 @@ const initApp = (state, payload) => ({
 	name: payload.name,
 })
 
-export const reducerContactUs = new ReducerManager({
-	namespace: "contactus",
-	store: "contactus",
-	initialState: __CLIENT__ ? window.__INITIAL_STATE__.contactus : {},
+export const reducerEnroll = new ReducerManager({
+	namespace: "home",
+	store: "home",
+	initialState: __CLIENT__ ? window.__INITIAL_STATE__.home : {},
 	actions: {
 		INIT_APP: initApp,
 	},

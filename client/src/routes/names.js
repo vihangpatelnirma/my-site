@@ -1,6 +1,9 @@
 const routeNames = {
 	HOME: "HOME",
-	CONTACTUS: "CONTACTUS",
+	ENROLL: "ENROLL",
+	BLOG: "BLOG",
+	TEAM: "TEAM",
+	COURSES: "COURSES",
 }
 
 export default routeNames

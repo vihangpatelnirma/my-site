@@ -1,13 +1,13 @@
 import { combineReducers } from "redux"
 
 import { reducerHome } from "client/home/reducer"
-import { reducerContactUs } from "client/contactus/reducer"
+import { reducerEnroll } from "client/enroll/reducer"
 import { reducerNavigator } from "client/routes/navigator"
 
 const initialReducer = {
 	[reducerHome.storeName]: reducerHome.reducer,
 	[reducerNavigator.storeName]: reducerNavigator.reducer,
-	[reducerContactUs.storeName]: reducerContactUs.reducer,
+	[reducerEnroll.storeName]: reducerEnroll.reducer,
 }
 
 const createReducer = defaultReducers =>

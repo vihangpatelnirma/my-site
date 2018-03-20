@@ -10,7 +10,7 @@ const Title = styled.h1`
 	color: palevioletred;
 `
 
-export default class Home extends Component {
+export default class Enroll extends Component {
 	constructor(props) {
 		super(props)
 	}
@@ -18,7 +18,7 @@ export default class Home extends Component {
 	render() {
 		return (
 			<div>
-				<Title>Home Part Test</Title>
+				<Title>Enroll Part Test</Title>
 			</div>
 		)
 	}

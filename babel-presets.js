@@ -11,6 +11,7 @@ module.exports = {
 		"transform-decorators-legacy",
 		"transform-class-properties",
 		"transform-async-to-generator",
+		"babel-plugin-styled-components",
 		"universal-import",
 		[
 			"module-resolver",

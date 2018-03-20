@@ -5,11 +5,17 @@ import Header from "client/header"
 import Footer from "client/footer"
 
 import Home from "client/home"
-import Contactus from "client/contactus"
+import Enroll from "client/enroll"
+import Courses from "client/courses"
+import Blog from "client/blog"
+import Team from "client/team"
 
 const indexMapFiles = {
 	Home,
-	Contactus,
+	Enroll,
+	Courses,
+	Blog,
+	Team,
 }
 
 @connect(state => ({

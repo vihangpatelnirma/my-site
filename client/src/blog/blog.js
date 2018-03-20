@@ -10,7 +10,7 @@ const Title = styled.h1`
 	color: palevioletred;
 `
 
-export default class Home extends Component {
+export default class Blog extends Component {
 	constructor(props) {
 		super(props)
 	}

@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 
 import { reducerNavigator } from "client/routes/navigator"
+import { HorizWrapper, HeaderLink } from "client/components/styled"
 
 @connect()
 export default class Header extends Component {
@@ -9,7 +10,10 @@ export default class Header extends Component {
 		super(props)
 
 		this.navigateHome = this.navigate.bind(this, "HOME")
-		this.navigateContactus = this.navigate.bind(this, "CONTACTUS")
+		this.navigateEnroll = this.navigate.bind(this, "ENROLL")
+		this.navigateCourses = this.navigate.bind(this, "COURSES")
+		this.navigateBlog = this.navigate.bind(this, "BLOG")
+		this.navigateTeam = this.navigate.bind(this, "TEAM")
 	}
 
 	navigate(page) {
@@ -18,10 +22,13 @@ export default class Header extends Component {
 
 	render() {
 		return (
-			<div>
-				<span onClick={this.navigateHome}>Home</span>
-				<span onClick={this.navigateContactus}>Contact Us </span>
-			</div>
+			<HorizWrapper>
+				<HeaderLink onClick={this.navigateHome}>HOME</HeaderLink>
+				<HeaderLink onClick={this.navigateEnroll}>ENROLL</HeaderLink>
+				<HeaderLink onClick={this.navigateCourses}>COURSES</HeaderLink>
+				<HeaderLink onClick={this.navigateBlog}>BLOG</HeaderLink>
+				<HeaderLink onClick={this.navigateTeam}>TEAM</HeaderLink>
+			</HorizWrapper>
 		)
 	}
 }
