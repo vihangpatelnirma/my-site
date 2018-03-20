@@ -27,6 +27,7 @@ const prodConfig = {
 			__SERVER__: false,
 			__CLIENT__: true,
 			__DEV__: true,
+			"process.env.NODE_ENV": JSON.stringify("production"),
 		}),
 
 		new webpack.optimize.UglifyJsPlugin({
