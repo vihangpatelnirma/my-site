@@ -21,7 +21,7 @@ module.exports =
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ccf42d5cfa49bd705838"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f7f812bc45195c6aca86"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -25202,7 +25202,9 @@ var ServeHTML = function (_Component) {
 				type: "text/javascript"
 			}), _react2.default.createElement("script", {
 				src: this.assets.publicPath + "/" + assets.assetsByChunkName.main
-			}), this.assets.scripts.map(function (filePath) {
+			}), this.assets.scripts.filter(function (filePath) {
+				return filePath.indexOf("vendor") === -1;
+			}).map(function (filePath) {
 				return scriptTag(filePath, _this2.assets.publicPath);
 			})));
 		}

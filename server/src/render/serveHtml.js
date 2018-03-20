@@ -59,9 +59,11 @@ export default class ServeHTML extends Component {
 							assets.assetsByChunkName.main
 						}`}
 					/>
-					{this.assets.scripts.map(filePath =>
-						scriptTag(filePath, this.assets.publicPath)
-					)}
+					{this.assets.scripts
+						.filter(filePath => filePath.indexOf("vendor") === -1)
+						.map(filePath =>
+							scriptTag(filePath, this.assets.publicPath)
+						)}
 				</body>
 			</html>
 		)
