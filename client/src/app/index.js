@@ -1,14 +1,14 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 
-import Header from "client/header"
-import Footer from "client/footer"
+import Header from "client/modules/header"
+import Footer from "client/modules/footer"
 
-import Home from "client/home"
-import Enroll from "client/enroll"
-import Courses from "client/courses"
-import Blog from "client/blog"
-import Team from "client/team"
+import Home from "client/modules/home"
+import Enroll from "client/modules/enroll"
+import Courses from "client/modules/courses"
+import Blog from "client/modules/blog"
+import Team from "client/modules/team"
 
 const indexMapFiles = {
 	Home,

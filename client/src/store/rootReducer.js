@@ -1,7 +1,7 @@
 import { combineReducers } from "redux"
 
-import { reducerHome } from "client/home/reducer"
-import { reducerEnroll } from "client/enroll/reducer"
+import { reducerHome } from "client/modules/home/reducer"
+import { reducerEnroll } from "client/modules/enroll/reducer"
 import { reducerNavigator } from "client/routes/navigator"
 
 const initialReducer = {
