@@ -29,8 +29,6 @@ export default function getClientBundleEntryAssets() {
 		return resultCache
 	}
 
-	console.log(config)
-
 	const assetsFilePath = path.resolve(
 		config.PUBLIC_PATH,
 		"build",

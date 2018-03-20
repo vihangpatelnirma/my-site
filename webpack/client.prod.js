@@ -47,6 +47,4 @@ const prodConfig = {
 	],
 }
 
-console.log("prod config : ", prodConfig)
-
 module.exports = prodConfig

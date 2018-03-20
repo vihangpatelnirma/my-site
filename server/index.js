@@ -18,8 +18,6 @@ app.use(
 
 router(app)
 
-console.log("process port : ", process.env.PORT)
-
 app.listen(process.env.PORT, () => {
 	console.log(`server is up and running on port ${process.env.PORT}`)
 })

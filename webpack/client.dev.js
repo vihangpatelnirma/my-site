@@ -10,8 +10,6 @@ const plugins = config.plugins
 
 const clientPath = path.resolve(__dirname, "..", "client", "src")
 
-console.log("****** path : ", clientPath)
-
 module.exports = {
 	entry: [
 		"webpack-hot-middleware/client?name=client&path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false",

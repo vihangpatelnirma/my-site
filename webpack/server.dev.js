@@ -9,8 +9,6 @@ const config = require("../babel/config")
 const presets = config.presets
 const plugins = config.plugins
 
-console.log("****** path : ", serverPath)
-
 module.exports = {
 	entry: serverPath,
 	name: "server",
