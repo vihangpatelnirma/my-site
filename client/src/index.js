@@ -1,12 +1,12 @@
 /** Libs imports */
-import React from "react"
-import { hydrate } from "react-dom"
-import { Provider } from "react-redux"
+import React from 'react'
+import { hydrate } from 'react-dom'
+import { Provider } from 'react-redux'
 
 /** File imports */
-import configureStore from "client/store"
-import App from "client/app"
-import initRoutes from "client/routes"
+import configureStore from 'client/store'
+import App from 'client/app'
+import initRoutes from 'client/routes'
 
 /**
  * Configure routes before hand the store is created.
@@ -22,4 +22,4 @@ const AppComponent = (
 	</Provider>
 )
 
-hydrate(AppComponent, document.getElementById("app"))
+hydrate(AppComponent, document.getElementById('app'))

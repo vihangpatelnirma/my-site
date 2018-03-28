@@ -2,9 +2,9 @@
  * This file resolves the entry assets available from our client bundle.
  */
 
-import fs from "fs"
-import path from "path"
-import config from "config"
+import fs from 'fs'
+import path from 'path'
+import config from 'config'
 
 let resultCache
 
@@ -25,15 +25,11 @@ export default function getClientBundleEntryAssets() {
 	// Return the assets json cache if it exists.
 	// In development mode we always read the assets json file from disk to avoid
 	// any cases where an older version gets cached.
-	if (process.env.NODE_ENV === "production" && resultCache) {
+	if (process.env.NODE_ENV === 'production' && resultCache) {
 		return resultCache
 	}
 
-	const assetsFilePath = path.resolve(
-		config.PUBLIC_PATH,
-		"build",
-		config.STATS_FILE
-	)
+	const assetsFilePath = path.resolve(config.PUBLIC_PATH, 'build', config.STATS_FILE)
 
 	if (!fs.existsSync(assetsFilePath)) {
 		throw new Error(
@@ -41,13 +37,10 @@ export default function getClientBundleEntryAssets() {
 		)
 	}
 
-	const readAssetsJSONFile = () =>
-		JSON.parse(fs.readFileSync(path.resolve(assetsFilePath), "utf8"))
+	const readAssetsJSONFile = () => JSON.parse(fs.readFileSync(path.resolve(assetsFilePath), 'utf8'))
 	const assetsJSONCache = readAssetsJSONFile()
-	if (typeof assetsJSONCache.assetsByChunkName.main === "undefined") {
-		throw new Error(
-			'No asset data found for expected "index" entry chunk of client bundle.'
-		)
+	if (typeof assetsJSONCache.assetsByChunkName.main === 'undefined') {
+		throw new Error('No asset data found for expected "index" entry chunk of client bundle.')
 	}
 	resultCache = assetsJSONCache
 

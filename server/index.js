@@ -1,18 +1,16 @@
-import koa from "koa"
-import env from "../config"
-import mount from "koa-mount"
-import serve from "koa-static"
-import path from "path"
+import koa from 'koa'
+import mount from 'koa-mount'
+import serve from 'koa-static'
 
-import config from "config"
+import config from 'config'
 
-import router from "server/middlewares/router"
+import router from 'server/middlewares/router'
 
 const app = new koa()
 
 app.use(
-	mount("/chunks", serve(config.PUBLIC_PATH), {
-		maxage: 24 * 60 * 60 * 100,
+	mount('/chunks', serve(config.PUBLIC_PATH), {
+		maxage: 24 * 60 * 60 * 100
 	})
 )
 

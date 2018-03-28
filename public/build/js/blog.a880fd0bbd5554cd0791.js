@@ -1,6 +1,6 @@
-webpackJsonp([1],{
+webpackJsonp([4],{
 
-/***/ 28:
+/***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63,26 +63,26 @@ function _taggedTemplateLiteral(strings, raw) {
 // centered, palevioletred and sized at 1.5em
 var Title = _styledComponents2.default.h1(_templateObject);
 
-var Home = function (_Component) {
-	_inherits(Home, _Component);
+var Blog = function (_Component) {
+	_inherits(Blog, _Component);
 
-	function Home(props) {
-		_classCallCheck(this, Home);
+	function Blog(props) {
+		_classCallCheck(this, Blog);
 
-		return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+		return _possibleConstructorReturn(this, (Blog.__proto__ || Object.getPrototypeOf(Blog)).call(this, props));
 	}
 
-	_createClass(Home, [{
+	_createClass(Blog, [{
 		key: "render",
 		value: function render() {
 			return _react2.default.createElement("div", null, _react2.default.createElement(Title, null, "Home Part Test"));
 		}
 	}]);
 
-	return Home;
+	return Blog;
 }(_react.Component);
 
-exports.default = Home;
+exports.default = Blog;
 
 /***/ })
 

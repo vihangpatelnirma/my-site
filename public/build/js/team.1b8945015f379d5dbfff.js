@@ -1,6 +1,6 @@
-webpackJsonp([2],{
+webpackJsonp([0],{
 
-/***/ 29:
+/***/ 33:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63,26 +63,26 @@ function _taggedTemplateLiteral(strings, raw) {
 // centered, palevioletred and sized at 1.5em
 var Title = _styledComponents2.default.h1(_templateObject);
 
-var Enroll = function (_Component) {
-	_inherits(Enroll, _Component);
+var Home = function (_Component) {
+	_inherits(Home, _Component);
 
-	function Enroll(props) {
-		_classCallCheck(this, Enroll);
+	function Home(props) {
+		_classCallCheck(this, Home);
 
-		return _possibleConstructorReturn(this, (Enroll.__proto__ || Object.getPrototypeOf(Enroll)).call(this, props));
+		return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 	}
 
-	_createClass(Enroll, [{
+	_createClass(Home, [{
 		key: "render",
 		value: function render() {
-			return _react2.default.createElement("div", null, _react2.default.createElement(Title, null, "Enroll Part Test"));
+			return _react2.default.createElement("div", null, _react2.default.createElement(Title, null, "Home Part Test"));
 		}
 	}]);
 
-	return Enroll;
+	return Home;
 }(_react.Component);
 
-exports.default = Enroll;
+exports.default = Home;
 
 /***/ })
 

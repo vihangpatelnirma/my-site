@@ -88,7 +88,7 @@ var _reducer = __webpack_require__(118);
 
 var _reducer2 = __webpack_require__(119);
 
-var _navigator = __webpack_require__(50);
+var _navigator = __webpack_require__(27);
 
 function _defineProperty(obj, key, value) {
 	if (key in obj) {
@@ -200,7 +200,37 @@ var reducerEnroll = exports.reducerEnroll = new _ReducerManager2.default({
 
 /***/ }),
 
-/***/ 120:
+/***/ 141:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+/**
+ * Converts a string to titlecase. Words without separation needs to have _ with them
+ * item => Item
+ * item_details => Item Details
+ * ITEM DETAILS => Item Details
+ *
+ * @param {string} [value='']
+ */
+var convertToTitleCase = exports.convertToTitleCase = function convertToTitleCase() {
+	var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+	return (value || "").replace(/\w\S*/g, function (txt) {
+		var Pieces = txt.indexOf("_") > -1 && txt.split("_").map(function (piece) {
+			return convertToTitleCase(piece);
+		}) || [];
+
+		return Pieces.length > 0 ? Pieces.join("") : txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+	});
+};
+
+/***/ }),
+
+/***/ 142:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -231,7 +261,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(21);
 
-var _header = __webpack_require__(121);
+var _header = __webpack_require__(143);
 
 var _header2 = _interopRequireDefault(_header);
 
@@ -317,7 +347,7 @@ exports.default = App;
 
 /***/ }),
 
-/***/ 121:
+/***/ 143:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -348,7 +378,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(21);
 
-var _navigator = __webpack_require__(50);
+var _navigator = __webpack_require__(27);
 
 var _styled = __webpack_require__(144);
 
@@ -405,36 +435,6 @@ var Header = (_dec = (0, _reactRedux.connect)(), _dec(_class = function (_Compon
 	return Header;
 }(_react.Component)) || _class);
 exports.default = Header;
-
-/***/ }),
-
-/***/ 143:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-/**
- * Converts a string to titlecase. Words without separation needs to have _ with them
- * item => Item
- * item_details => Item Details
- * ITEM DETAILS => Item Details
- *
- * @param {string} [value='']
- */
-var convertToTitleCase = exports.convertToTitleCase = function convertToTitleCase() {
-	var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-	return (value || "").replace(/\w\S*/g, function (txt) {
-		var Pieces = txt.indexOf("_") > -1 && txt.split("_").map(function (piece) {
-			return convertToTitleCase(piece);
-		}) || [];
-
-		return Pieces.length > 0 ? Pieces.join("") : txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-	});
-};
 
 /***/ }),
 
@@ -595,7 +595,7 @@ var Home = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)
       id: "./home",
       file: "/Users/vihangpatel/projects/my-site/client/src/modules/home/index.js",
       load: function load() {
-        return Promise.all([__webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 28)), _importCss("home", {})]).then(function (proms) {
+        return Promise.all([__webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 29)), _importCss("home", {})]).then(function (proms) {
           return proms[0];
         });
       },
@@ -603,7 +603,7 @@ var Home = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)
         return _path.join(__dirname, "./home");
       },
       resolve: function resolve() {
-        return /*require.resolve*/(28);
+        return /*require.resolve*/(29);
       },
       chunkName: function chunkName() {
         return "home";
@@ -616,7 +616,7 @@ var Home = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)
     return _path3.default.join(__dirname, "./home");
   },
   resolve: function resolve() {
-    return /*require.resolve*/(28);
+    return /*require.resolve*/(29);
   },
   chunkName: function chunkName() {
     return "home";
@@ -676,7 +676,7 @@ var Enroll = (0, _reactUniversalComponent2.default)((0, _universalImport3.defaul
       id: "./enroll",
       file: "/Users/vihangpatel/projects/my-site/client/src/modules/enroll/index.js",
       load: function load() {
-        return Promise.all([__webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 29)), _importCss("enroll", {})]).then(function (proms) {
+        return Promise.all([__webpack_require__.e/* import() */(2).then(__webpack_require__.bind(null, 30)), _importCss("enroll", {})]).then(function (proms) {
           return proms[0];
         });
       },
@@ -684,7 +684,7 @@ var Enroll = (0, _reactUniversalComponent2.default)((0, _universalImport3.defaul
         return _path.join(__dirname, "./enroll");
       },
       resolve: function resolve() {
-        return /*require.resolve*/(29);
+        return /*require.resolve*/(30);
       },
       chunkName: function chunkName() {
         return "enroll";
@@ -697,7 +697,7 @@ var Enroll = (0, _reactUniversalComponent2.default)((0, _universalImport3.defaul
     return _path3.default.join(__dirname, "./enroll");
   },
   resolve: function resolve() {
-    return /*require.resolve*/(29);
+    return /*require.resolve*/(30);
   },
   chunkName: function chunkName() {
     return "enroll";
@@ -757,7 +757,7 @@ var Courses = (0, _reactUniversalComponent2.default)((0, _universalImport3.defau
       id: "./courses",
       file: "/Users/vihangpatel/projects/my-site/client/src/modules/courses/index.js",
       load: function load() {
-        return Promise.all([__webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, 30)), _importCss("courses", {})]).then(function (proms) {
+        return Promise.all([__webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, 31)), _importCss("courses", {})]).then(function (proms) {
           return proms[0];
         });
       },
@@ -765,7 +765,7 @@ var Courses = (0, _reactUniversalComponent2.default)((0, _universalImport3.defau
         return _path.join(__dirname, "./courses");
       },
       resolve: function resolve() {
-        return /*require.resolve*/(30);
+        return /*require.resolve*/(31);
       },
       chunkName: function chunkName() {
         return "courses";
@@ -778,7 +778,7 @@ var Courses = (0, _reactUniversalComponent2.default)((0, _universalImport3.defau
     return _path3.default.join(__dirname, "./courses");
   },
   resolve: function resolve() {
-    return /*require.resolve*/(30);
+    return /*require.resolve*/(31);
   },
   chunkName: function chunkName() {
     return "courses";
@@ -838,7 +838,7 @@ var Blog = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)
       id: "./blog",
       file: "/Users/vihangpatel/projects/my-site/client/src/modules/blog/index.js",
       load: function load() {
-        return Promise.all([__webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, 31)), _importCss("blog", {})]).then(function (proms) {
+        return Promise.all([__webpack_require__.e/* import() */(4).then(__webpack_require__.bind(null, 32)), _importCss("blog", {})]).then(function (proms) {
           return proms[0];
         });
       },
@@ -846,7 +846,7 @@ var Blog = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)
         return _path.join(__dirname, "./blog");
       },
       resolve: function resolve() {
-        return /*require.resolve*/(31);
+        return /*require.resolve*/(32);
       },
       chunkName: function chunkName() {
         return "blog";
@@ -859,7 +859,7 @@ var Blog = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)
     return _path3.default.join(__dirname, "./blog");
   },
   resolve: function resolve() {
-    return /*require.resolve*/(31);
+    return /*require.resolve*/(32);
   },
   chunkName: function chunkName() {
     return "blog";
@@ -919,7 +919,7 @@ var Team = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)
       id: "./team",
       file: "/Users/vihangpatel/projects/my-site/client/src/modules/team/index.js",
       load: function load() {
-        return Promise.all([__webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 32)), _importCss("team", {})]).then(function (proms) {
+        return Promise.all([__webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 33)), _importCss("team", {})]).then(function (proms) {
           return proms[0];
         });
       },
@@ -927,7 +927,7 @@ var Team = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)
         return _path.join(__dirname, "./team");
       },
       resolve: function resolve() {
-        return /*require.resolve*/(32);
+        return /*require.resolve*/(33);
       },
       chunkName: function chunkName() {
         return "team";
@@ -940,7 +940,7 @@ var Team = (0, _reactUniversalComponent2.default)((0, _universalImport3.default)
     return _path3.default.join(__dirname, "./team");
   },
   resolve: function resolve() {
-    return /*require.resolve*/(32);
+    return /*require.resolve*/(33);
   },
   chunkName: function chunkName() {
     return "team";
@@ -1010,7 +1010,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _routes;
 
-var _navigator = __webpack_require__(50);
+var _navigator = __webpack_require__(27);
 
 function _defineProperty(obj, key, value) {
 	if (key in obj) {
@@ -1158,7 +1158,7 @@ exports.default = ReducerPackager;
 
 /***/ }),
 
-/***/ 50:
+/***/ 27:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1185,7 +1185,7 @@ var _ReducerManager = __webpack_require__(26);
 
 var _ReducerManager2 = _interopRequireDefault(_ReducerManager);
 
-var _string = __webpack_require__(143);
+var _string = __webpack_require__(141);
 
 var _names = __webpack_require__(59);
 
@@ -1302,7 +1302,7 @@ var _store = __webpack_require__(116);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _app = __webpack_require__(120);
+var _app = __webpack_require__(142);
 
 var _app2 = _interopRequireDefault(_app);
 
